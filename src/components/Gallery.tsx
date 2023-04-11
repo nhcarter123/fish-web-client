@@ -18,7 +18,6 @@ const skeletonDataMobile = new Array(8).fill(1);
 const Gallery = ({ fishes }: GalleryProps) => {
   const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
-  // let width = 1000;
   let cols = 6;
   let maxHeight = "64vh";
 

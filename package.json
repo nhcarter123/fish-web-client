@@ -2,7 +2,7 @@
   "name": "fish-web-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nhcarter123.github.io/fish-web-client",
+  "homepage": "http://nhcarter123.github.io/fish-web-client",
   "dependencies": {
     "@apollo/client": "^3.7.11",
     "@emotion/react": "^11.10.6",
