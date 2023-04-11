@@ -1,0 +1,26 @@
+scalar Date
+
+input UpdateMatchPayload {
+  rating: Int!
+}
+
+type Fish {
+  _id: String!
+  type: Int!
+  username: String!
+  float: Float!
+  isShiny: Boolean!
+  weight: Float!
+  age: Float!
+  rarity: Int!
+  gender: Int!
+  value: Int!
+}
+
+type Query {
+  getFish(username: String, page: Int!, pageSize: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!): [Fish!]!
+}
+
+schema {
+  query: Query
+}
