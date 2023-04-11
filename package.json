@@ -2,6 +2,7 @@
   "name": "fish-web-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nhcarter123.github.io/fish-web-client",
   "dependencies": {
     "@apollo/client": "^3.7.11",
     "@emotion/react": "^11.10.6",
@@ -16,7 +17,6 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "graphql": "^16.6.0",
-    "i": "^0.3.7",
     "npm": "^9.6.4",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.7"
   }
 }
