@@ -5,6 +5,7 @@ export const GET_FISH = gql`
     $username: String
     $page: Int!
     $pageSize: Int!
+    $createdSort: Int!
     $raritySort: Int!
     $valueSort: Int!
     $floatSort: Int!
@@ -13,6 +14,7 @@ export const GET_FISH = gql`
       username: $username
       page: $page
       pageSize: $pageSize
+      createdSort: $createdSort
       raritySort: $raritySort
       valueSort: $valueSort
       floatSort: $floatSort

@@ -23,6 +23,8 @@ export const round2Decimal = (num: number, decimalPlaces = 1): number => {
 };
 
 const FishCard = ({ fish }: FishCardProps): JSX.Element => {
+  const [tooltipIsOpen, setTooltipIsOpen] = React.useState(false);
+
   const path = getFishPathFromType(fish.type);
   const rarity = fishConfigMap[fish.type].rarity;
   const rarityColor = getRarityColor(rarity);
@@ -44,9 +46,16 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
   );
 
   return (
-    <Tooltip title={tooltip} disableInteractive={true}>
+    <Tooltip
+      title={tooltip}
+      disableInteractive={true}
+      open={tooltipIsOpen}
+      onOpen={() => setTooltipIsOpen(true)}
+      onClose={() => setTooltipIsOpen(false)}
+    >
       <Box>
         <Box
+          onClick={() => setTooltipIsOpen(!tooltipIsOpen)}
           display={"flex"}
           sx={{
             backgroundImage: "linear-gradient(to right, #DECBA4, #3E5151);",

@@ -6,24 +6,42 @@ import FishCard from "./FishCard";
 import { Fish } from "../types/fish";
 import React from "react";
 import { Skeleton, TableSortLabel } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 
 type GalleryProps = {
   fishes: Fish[];
 };
 
-const skeletonData = new Array(24).fill(1);
+const skeletonDataPC = new Array(24).fill(1);
+const skeletonDataMobile = new Array(8).fill(1);
+
 const Gallery = ({ fishes }: GalleryProps) => {
-  // fishes = [];
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+
+  // let width = 1000;
+  let cols = 6;
+  let maxHeight = "64vh";
+
+  if (isMobile) {
+    // width = 300;
+    cols = 2;
+    maxHeight = "73vh";
+  }
+
+  const skeletonData = isMobile ? skeletonDataMobile : skeletonDataPC;
 
   return (
     <ImageList
       sx={{
-        width: 850,
+        // maxWidth: 1000,
         // overflowY: "hidden",
-        height: fishes.length === 0 ? "64vh" : "100%",
-        maxHeight: "64vh",
+        height: fishes.length === 0 ? maxHeight : "100%",
+        maxHeight,
+        // margin: "16px 24px",
+        paddingLeft: "24px",
+        paddingRight: "24px",
       }}
-      cols={6}
+      cols={cols}
       rowHeight={120}
       gap={16}
     >

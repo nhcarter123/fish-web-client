@@ -18,7 +18,7 @@ type Fish {
 }
 
 type Query {
-  getFish(username: String, page: Int!, pageSize: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!): [Fish!]!
+  getFish(username: String, page: Int!, pageSize: Int!, createdSort: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!): [Fish!]!
 }
 
 schema {

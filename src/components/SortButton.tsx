@@ -22,7 +22,24 @@ export const SortButton = ({
   }
 
   return (
-    <Box onClick={onClick} display={"flex"} mr={3} color={"white"}>
+    <Box
+      onClick={onClick}
+      display={"flex"}
+      mr={2}
+      color={"white"}
+      width={"77px"}
+      justifyContent={"space-between"}
+      sx={{
+        background: "#3e3e3e",
+        borderRadius: "4px",
+        padding: "0 8px",
+        userSelect: "none",
+        "&:hover": {
+          cursor: "pointer",
+          background: "#4e4e4e",
+        },
+      }}
+    >
       <Typography>{title}</Typography>
       {sortIcon}
     </Box>
