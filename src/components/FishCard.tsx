@@ -95,7 +95,7 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
 
             <Box sx={{ padding: "4px" }}>
               <img
-                src={`${process.env.PUBLIC_URL}/assets/images/fish/${path}.png`}
+                src={`${window.location.origin}/fish-web-client/assets/images/fish/${path}.png`}
                 alt="logo"
                 style={{
                   imageRendering: "pixelated",

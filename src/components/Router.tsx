@@ -6,11 +6,11 @@ import Main from "./Main";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/fish-web-client/",
     element: <Main />,
   },
   {
-    path: "user/:username",
+    path: "/fish-web-client/user/:username",
     element: <Main />,
   },
 ]);
