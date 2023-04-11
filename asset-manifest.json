@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/fish-web-client/static/css/main.acf8272c.css",
+    "main.js": "/fish-web-client/static/js/main.540d9ca6.js",
+    "static/media/coin.png": "/fish-web-client/static/media/coin.65e1b695b71762274c2a.png",
+    "index.html": "/fish-web-client/index.html",
+    "main.acf8272c.css.map": "/fish-web-client/static/css/main.acf8272c.css.map",
+    "main.540d9ca6.js.map": "/fish-web-client/static/js/main.540d9ca6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.acf8272c.css",
+    "static/js/main.540d9ca6.js"
+  ]
+}

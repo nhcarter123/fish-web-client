@@ -1,0 +1,7 @@
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#302f31;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;margin:0}code{font-family:source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace}::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:var(--lightestgrey)}::-webkit-scrollbar-thumb{background:#888;border-radius:5px}::-webkit-scrollbar-thumb:hover{background:#555}.shiny{overflow:hidden;position:relative}
+
+/*!* Hover state - trigger effect *!*/
+
+
+/*!* Active state *!*/.shiny:after{-webkit-animation:ShineAnim 3s ease infinite;animation:ShineAnim 3s ease infinite;-webkit-animation-delay:0s;animation-delay:0s;background:linear-gradient(90deg,transparent,hsla(0,0%,100%,.4),transparent);content:"";display:block;height:100%;left:-100%;position:absolute;top:0;width:100%}@-webkit-keyframes ShineAnim{0%{left:-100%}30%{left:100%}to{left:100%}}@keyframes ShineAnim{0%{left:-100%}30%{left:100%}to{left:100%}}
+/*# sourceMappingURL=main.acf8272c.css.map*/
