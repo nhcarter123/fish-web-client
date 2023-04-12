@@ -73,7 +73,7 @@ export const getRarityColor = (rarity: Rarity) => {
     case Rarity.VeryCommon:
       return "#e0f3f3";
     case Rarity.Common:
-      return "#ffc99f";
+      return "#7993cc";
     case Rarity.Uncommon:
       return "#6bb66b";
     case Rarity.Scarce:
@@ -81,7 +81,7 @@ export const getRarityColor = (rarity: Rarity) => {
     case Rarity.Rare:
       return "#4747ff";
     case Rarity.Epic:
-      return "#ffc504";
+      return "#ffec00";
     case Rarity.Exotic:
       return "#d230d2";
     case Rarity.Extraordinary:

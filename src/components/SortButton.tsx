@@ -25,9 +25,8 @@ export const SortButton = ({
     <Box
       onClick={onClick}
       display={"flex"}
-      mr={2}
       color={"white"}
-      width={"77px"}
+      minWidth={"77px"}
       justifyContent={"space-between"}
       sx={{
         background: "#3e3e3e",

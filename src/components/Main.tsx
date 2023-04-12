@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_FISH } from "../graphql/definitions/queries";
-import { Box, Button, TableSortLabel, Typography } from "@mui/material";
+import { Box, Button, Grid, TableSortLabel, Typography } from "@mui/material";
 import Gallery from "./Gallery";
 import React from "react";
 import { useParams } from "react-router-dom";
@@ -28,7 +28,7 @@ const Main = () => {
     variables: {
       username,
       page,
-      pageSize: isMobile ? 8 : 24,
+      pageSize: isMobile ? 12 : 24,
       createdSort,
       raritySort,
       valueSort,
@@ -49,39 +49,41 @@ const Main = () => {
   };
 
   const handleRaritySort = (type: SortType) => {
+    setPage(1);
+
     switch (type) {
       case SortType.Created:
         if (createdSort === 0) {
-          setSort(1, 0, 0, 0);
-        } else if (createdSort === 1) {
           setSort(-1, 0, 0, 0);
+        } else if (createdSort === 1) {
+          setSort(1, 0, 0, 0);
         } else {
           setSort(0, 0, 0, 0);
         }
         break;
       case SortType.Rarity:
         if (raritySort === 0) {
-          setSort(0, 1, 0, 0);
-        } else if (raritySort === 1) {
           setSort(0, -1, 0, 0);
+        } else if (raritySort === 1) {
+          setSort(0, 1, 0, 0);
         } else {
           setSort(0, 0, 0, 0);
         }
         break;
       case SortType.Value:
         if (valueSort === 0) {
-          setSort(0, 0, 0, 1);
-        } else if (valueSort === 1) {
           setSort(0, 0, 0, -1);
+        } else if (valueSort === 1) {
+          setSort(0, 0, 0, 1);
         } else {
           setSort(0, 0, 0, 0);
         }
         break;
       case SortType.Float:
         if (floatSort === 0) {
-          setSort(0, 0, 1, 0);
-        } else if (floatSort === 1) {
           setSort(0, 0, -1, 0);
+        } else if (floatSort === 1) {
+          setSort(0, 0, 1, 0);
         } else {
           setSort(0, 0, 0, 0);
         }
@@ -97,33 +99,66 @@ const Main = () => {
   }
 
   return (
-    <Box mt={4} width={"100%"} display={"flex"} justifyContent={"center"}>
-      <Box width={"100%"} maxWidth={"900px"}>
-        <Typography color={"#fff"} variant={"h4"} textAlign={"center"} mb={3}>
-          {title}
-        </Typography>
+    <Box
+      width={"100%"}
+      height={"100%"}
+      display={"flex"}
+      justifyContent={"center"}
+      position={"relative"}
+    >
+      <Box width={"100%"}>
+        <Box
+          sx={{
+            position: "sticky",
+            top: 0,
+            background: "#262626",
+            padding: "12px 0px",
+            zIndex: 1,
+          }}
+        >
+          <Typography color={"#fff"} variant={"h5"} textAlign={"center"} mb={1}>
+            {title}
+          </Typography>
 
-        <Box display={"flex"} mx={3}>
-          <SortButton
-            title={"Created"}
-            onClick={() => handleRaritySort(SortType.Created)}
-            sort={createdSort}
-          />
-          <SortButton
-            title={"Rarity"}
-            onClick={() => handleRaritySort(SortType.Rarity)}
-            sort={raritySort}
-          />
-          <SortButton
-            title={"Value"}
-            onClick={() => handleRaritySort(SortType.Value)}
-            sort={valueSort}
-          />
-          <SortButton
-            title={"Float"}
-            onClick={() => handleRaritySort(SortType.Float)}
-            sort={floatSort}
-          />
+          <Box display={"flex"} justifyContent={"center"}>
+            <Box mx={3}>
+              <Grid
+                container
+                spacing={{ xs: 1, md: 3 }}
+                columns={{ xs: 4, sm: 12, md: 12 }}
+                justifyContent={"center"}
+              >
+                <Grid item xs={2} sm={3} md={3}>
+                  <SortButton
+                    title={"Created"}
+                    onClick={() => handleRaritySort(SortType.Created)}
+                    sort={createdSort}
+                  />
+                </Grid>
+                <Grid item xs={2} sm={3} md={3}>
+                  <SortButton
+                    title={"Rarity"}
+                    onClick={() => handleRaritySort(SortType.Rarity)}
+                    sort={raritySort}
+                  />
+                </Grid>
+                <Grid item xs={2} sm={3} md={3}>
+                  <SortButton
+                    title={"Value"}
+                    onClick={() => handleRaritySort(SortType.Value)}
+                    sort={valueSort}
+                  />
+                </Grid>
+                <Grid item xs={2} sm={3} md={3}>
+                  <SortButton
+                    title={"Float"}
+                    onClick={() => handleRaritySort(SortType.Float)}
+                    sort={floatSort}
+                  />
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
         </Box>
 
         {/*<Button*/}
@@ -139,15 +174,34 @@ const Main = () => {
         {/*  Float*/}
         {/*</Button>*/}
 
-        <Gallery fishes={fish} />
         <Box display={"flex"} justifyContent={"center"}>
+          <Box maxWidth={"900px"} width={"100%"}>
+            <Gallery fishes={fish} />
+          </Box>
+        </Box>
+
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          // position={"absolute"}
+          // sx={{
+          //   width: "100%",
+          //   bottom: "0px",
+          // }}
+        >
           <Pagination
             count={10}
+            boundaryCount={0}
             color="primary"
             sx={{
               "& .MuiPaginationItem-text": {
                 color: "#fff",
               },
+              background: "#414141",
+              position: "fixed",
+              bottom: "10px",
+              padding: "10px",
+              borderRadius: "8px",
             }}
             onChange={(e, value) => setPage(value)}
           />

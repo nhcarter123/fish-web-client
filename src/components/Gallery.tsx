@@ -23,8 +23,8 @@ const Gallery = ({ fishes }: GalleryProps) => {
 
   if (isMobile) {
     // width = 300;
-    cols = 2;
-    maxHeight = "73vh";
+    cols = 3;
+    maxHeight = "65vh";
   }
 
   const skeletonData = isMobile ? skeletonDataMobile : skeletonDataPC;
@@ -34,11 +34,12 @@ const Gallery = ({ fishes }: GalleryProps) => {
       sx={{
         // maxWidth: 1000,
         // overflowY: "hidden",
-        height: fishes.length === 0 ? maxHeight : "100%",
-        maxHeight,
+        // height: fishes.length === 0 ? maxHeight : "auto",
+        // maxHeight,
         // margin: "16px 24px",
         paddingLeft: "24px",
         paddingRight: "24px",
+        marginBottom: "80px",
       }}
       cols={cols}
       rowHeight={120}
