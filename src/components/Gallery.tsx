@@ -43,7 +43,7 @@ const Gallery = ({ fishes }: GalleryProps) => {
       }}
       cols={cols}
       rowHeight={120}
-      gap={16}
+      gap={isMobile ? 8 : 16}
     >
       {fishes.length === 0 &&
         skeletonData.map((_, index) => (
