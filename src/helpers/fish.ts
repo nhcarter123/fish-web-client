@@ -49,6 +49,8 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_19_x";
     case FishType.SeaBass:
       return "spr_fish_28_x";
+    case FishType.Sardine:
+      return "spr_fish_29_x";
     case FishType.Bluegill:
       return "spr_fish_38_x";
     case FishType.Snook:
@@ -63,6 +65,24 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_61_x";
     case FishType.Tuna:
       return "spr_fish_69_x";
+    case FishType.RockBass:
+      return "spr_fish_33_x";
+    case FishType.Herring:
+      return "spr_fish_67_x";
+    case FishType.Chub:
+      return "spr_fish_37_x";
+    case FishType.Trout:
+      return "spr_fish_05_x";
+    case FishType.BrookTrout:
+      return "spr_fish_05_x";
+    case FishType.Walleye:
+      return "spr_fish_60_x";
+    case FishType.Snapper:
+      return "spr_fish_14_x";
+    case FishType.Whitefish:
+      return "spr_fish_67_x";
+    case FishType.Swordfish:
+      return "spr_fish_57_x";
   }
 
   return "spr_fish_01_x";
