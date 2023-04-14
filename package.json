@@ -16,6 +16,7 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "graphql": "^16.6.0",
+    "graphql-ws": "^5.12.1",
     "npm": "^9.6.4",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
@@ -24,6 +25,7 @@
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "subscriptions-transport-ws": "^0.11.0",
     "typescript": "^5.0.4"
   },
   "scripts": {

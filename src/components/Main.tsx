@@ -1,12 +1,13 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useSubscription } from "@apollo/client";
 import { GET_FISH } from "../graphql/definitions/queries";
 import { Box, Button, Grid, TableSortLabel, Typography } from "@mui/material";
 import Gallery from "./Gallery";
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import SortButton from "./SortButton";
 import { useMediaQuery } from "react-responsive";
+import { FISH_CAUGHT } from "../graphql/definitions/subscriptions";
 
 export enum SortType {
   Created,
@@ -22,9 +23,15 @@ const Main = () => {
   const [valueSort, setValueSort] = React.useState(0);
   const [floatSort, setFloatSort] = React.useState(0);
 
+  const { data: subData, loading: subLoading } = useSubscription(FISH_CAUGHT, {
+    variables: {
+      username,
+    },
+  });
+
   const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
-  const { data, loading } = useQuery(GET_FISH, {
+  const { data, loading, subscribeToMore } = useQuery(GET_FISH, {
     variables: {
       username,
       page,
@@ -97,6 +104,31 @@ const Main = () => {
   if (username) {
     title = `${username}'s fish`;
   }
+
+  const subscribeToCatches = () => {
+    subscribeToMore({
+      document: FISH_CAUGHT,
+      variables: {
+        username,
+      },
+      updateQuery: (prev, { subscriptionData }) => {
+        if (!subscriptionData.data) return prev;
+        const newFish = subscriptionData.data.fishCaught;
+
+        const combined = [newFish, ...prev.getFish];
+        combined.pop();
+
+        return {
+          ...prev,
+          getFish: createdSort === -1 ? combined : prev.getFish,
+        };
+      },
+    });
+  };
+
+  useEffect(() => {
+    subscribeToCatches();
+  }, []);
 
   return (
     <Box

@@ -21,6 +21,12 @@ type Query {
   getFish(username: String, page: Int!, pageSize: Int!, createdSort: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!): [Fish!]!
 }
 
+type Subscription {
+  fishCaught(username: String): Fish!
+}
+
+
 schema {
   query: Query
+  subscription: Subscription
 }
