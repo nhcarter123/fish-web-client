@@ -62,7 +62,7 @@ const Main = () => {
       case SortType.Created:
         if (createdSort === 0) {
           setSort(-1, 0, 0, 0);
-        } else if (createdSort === 1) {
+        } else if (createdSort === -1) {
           setSort(1, 0, 0, 0);
         } else {
           setSort(0, 0, 0, 0);
@@ -71,7 +71,7 @@ const Main = () => {
       case SortType.Rarity:
         if (raritySort === 0) {
           setSort(0, -1, 0, 0);
-        } else if (raritySort === 1) {
+        } else if (raritySort === -1) {
           setSort(0, 1, 0, 0);
         } else {
           setSort(0, 0, 0, 0);
@@ -80,7 +80,7 @@ const Main = () => {
       case SortType.Value:
         if (valueSort === 0) {
           setSort(0, 0, 0, -1);
-        } else if (valueSort === 1) {
+        } else if (valueSort === -1) {
           setSort(0, 0, 0, 1);
         } else {
           setSort(0, 0, 0, 0);
@@ -89,7 +89,7 @@ const Main = () => {
       case SortType.Float:
         if (floatSort === 0) {
           setSort(0, 0, -1, 0);
-        } else if (floatSort === 1) {
+        } else if (floatSort === -1) {
           setSort(0, 0, 1, 0);
         } else {
           setSort(0, 0, 0, 0);
@@ -105,7 +105,7 @@ const Main = () => {
     title = `${username}'s fish`;
   }
 
-  const subscribeToCatches = () => {
+  const subscribeToCatches = (createdSort: number) =>
     subscribeToMore({
       document: FISH_CAUGHT,
       variables: {
@@ -124,11 +124,14 @@ const Main = () => {
         };
       },
     });
-  };
 
   useEffect(() => {
-    subscribeToCatches();
-  }, []);
+    if (createdSort === -1) {
+      const unsubscribe = subscribeToCatches(createdSort);
+
+      return () => unsubscribe();
+    }
+  }, [createdSort, subscribeToCatches]);
 
   return (
     <Box
@@ -165,6 +168,7 @@ const Main = () => {
                     title={"Created"}
                     onClick={() => handleRaritySort(SortType.Created)}
                     sort={createdSort}
+                    live={createdSort === -1}
                   />
                 </Grid>
                 <Grid item xs={2} sm={3} md={3}>

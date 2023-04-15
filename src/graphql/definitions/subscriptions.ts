@@ -16,3 +16,15 @@ export const FISH_CAUGHT = gql`
     }
   }
 `;
+
+export const LEADERBOARD_UPDATED = gql`
+  subscription LeaderboardUpdated {
+    leaderboardUpdated {
+      _id
+      type
+      username
+      value
+      rarity
+    }
+  }
+`;

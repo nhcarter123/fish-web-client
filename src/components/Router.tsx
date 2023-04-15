@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import Gallery from "./Gallery";
 import React from "react";
 import Main from "./Main";
+import Leaderboard from "./Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "user/:username",
     element: <Main />,
+  },
+  {
+    path: "/leaderboard",
+    element: <Leaderboard />,
   },
 ]);
 

@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
 import { Box, ImageListItem, Tooltip, Typography } from "@mui/material";
-import { Fish, FishGender } from "../types/fish";
-import {
-  fishTypeNameMap,
-  getFishPathFromType,
-  getRarityColor,
-  rarityNameMap,
-} from "../helpers/fish";
+import { Fish } from "../types/fish";
+import { getFishPathFromType, getRarityColor } from "../helpers/fish";
 
 import MaleImage from "../images/male.png";
 import FemaleImage from "../images/female.png";
 import CoinImage from "../images/coin.png";
-import { fishConfigMap } from "../config/config";
+import {
+  fishConfigMap,
+  fishTypeNameMap,
+  rarityNameMap,
+} from "../config/config";
 import { SnackbarContext, SnackbarSeverity } from "./SnackbarProvider";
 
 type FishCardProps = {
@@ -111,7 +110,10 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
               />
             )}
 
-            <Box sx={{ padding: "4px", position: "relative" }}>
+            <Box
+              sx={{ padding: "4px", position: "relative" }}
+              // className={"wiggle"}
+            >
               <img
                 src={`${window.location.origin}/assets/images/fish/${path}.png`}
                 alt="logo"
@@ -143,6 +145,7 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
                 right: "0px",
                 // background: "rgb(255,255,255)",
                 padding: "2px 4px",
+                pointerEvents: "none",
               }}
             >
               <img src={CoinImage} alt="coin" width={"20px"} height={"20px"} />

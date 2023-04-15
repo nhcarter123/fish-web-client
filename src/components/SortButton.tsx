@@ -7,12 +7,14 @@ type SortButtonProps = {
   sort: number;
   onClick: () => void;
   title: string;
+  live?: boolean;
 };
 
 export const SortButton = ({
   title,
   sort,
   onClick,
+  live,
 }: SortButtonProps): JSX.Element => {
   let sortIcon = <></>;
   if (sort === 1) {
@@ -26,8 +28,9 @@ export const SortButton = ({
       onClick={onClick}
       display={"flex"}
       color={"white"}
-      minWidth={"77px"}
+      minWidth={"100px"}
       justifyContent={"space-between"}
+      alignItems={"center"}
       sx={{
         background: "#3e3e3e",
         borderRadius: "4px",
@@ -39,6 +42,19 @@ export const SortButton = ({
         },
       }}
     >
+      {live && (
+        <Box
+          className={"pulsing"}
+          sx={{
+            width: "7px",
+            height: "7px",
+            borderRadius: "50%",
+            background: "rgba(255,50,50,1)",
+            boxShadow:
+              "inset 0px 0px 10px 2px rgba(255,100,100,0.5), 0px 0px 10px 1px rgba(255,100,100,0.9);",
+          }}
+        />
+      )}
       <Typography>{title}</Typography>
       {sortIcon}
     </Box>

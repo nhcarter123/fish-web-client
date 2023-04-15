@@ -19,10 +19,12 @@ type Fish {
 
 type Query {
   getFish(username: String, page: Int!, pageSize: Int!, createdSort: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!): [Fish!]!
+  getTopCatches: [Fish!]!
 }
 
 type Subscription {
   fishCaught(username: String): Fish!
+  leaderboardUpdated: [Fish!]!
 }
 
 

@@ -1,4 +1,6 @@
-import { FishType, Rarity } from "../types/fish";
+import { FishType } from "../config/config";
+import { Rarity } from "../config/config";
+
 export const getFishPathFromType = (type: number) => {
   switch (type) {
     case FishType.BrownTrout:
@@ -83,6 +85,8 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_67_x";
     case FishType.Swordfish:
       return "spr_fish_57_x";
+    case FishType.Sturgeon:
+      return "spr_fish_21_x";
   }
 
   return "spr_fish_01_x";
@@ -111,71 +115,4 @@ export const getRarityColor = (rarity: Rarity) => {
     case Rarity.Mythical:
       return "#ff0000";
   }
-};
-
-export const fishTypeNameMap: Record<FishType, string> = {
-  [FishType.BrownTrout]: "Brown trout",
-  [FishType.Perch]: "Perch",
-  [FishType.Carp]: "Carp",
-  [FishType.YellowPerch]: "Yellow perch",
-  [FishType.Pike]: "Pike",
-  [FishType.LargeMouthBass]: "Large mouth bass",
-  [FishType.SmallMouthBass]: "Small mouth bass",
-  [FishType.Sunfish]: "Sunfish",
-  [FishType.Catfish]: "Catfish",
-  [FishType.Crawfish]: "Crawfish",
-  [FishType.SoftShelledTurtle]: "Soft-shelled turtle",
-  [FishType.Crab]: "Crab",
-  [FishType.Salmon]: "Salmon",
-  [FishType.Shrimp]: "Shrimp",
-  [FishType.Eel]: "Eel",
-  [FishType.Squid]: "Squid",
-  [FishType.Octopus]: "Octopus",
-  [FishType.Jellyfish]: "Jellyfish",
-  [FishType.Starfish]: "Starfish",
-  [FishType.RainbowTrout]: "Rainbow trout",
-  [FishType.Lobster]: "Lobster",
-  [FishType.Walleye]: "Walleye",
-  [FishType.BoxTurtle]: "Box turtle",
-  [FishType.SnappingTurtle]: "Snapping turtle",
-  [FishType.SpottedTurtle]: "Spotted turtle",
-  [FishType.MudTurtle]: "Mud turtle",
-  [FishType.Pufferfish]: "Pufferfish",
-  [FishType.Sardine]: "Sardine",
-  [FishType.SeaBass]: "Sea bass",
-  [FishType.Swordfish]: "Swordfish",
-  [FishType.Tilapia]: "Tilapia",
-  [FishType.Whitefish]: "Whitefish",
-  [FishType.Zander]: "Zander",
-  [FishType.Bluegill]: "Bluegill",
-  [FishType.Bullhead]: "Bullhead",
-  [FishType.Chub]: "Chub",
-  [FishType.Crappie]: "Crappie",
-  [FishType.Flounder]: "Flounder",
-  [FishType.Gar]: "Gar",
-  [FishType.Herring]: "Herring",
-  [FishType.Redfish]: "Redfish",
-  [FishType.Snapper]: "Snapper",
-  [FishType.Snook]: "Snook",
-  [FishType.Sturgeon]: "Sturgeon",
-  [FishType.Trout]: "Trout",
-  [FishType.Tuna]: "Tuna",
-  [FishType.BrookTrout]: "Brook trout",
-  [FishType.Cod]: "Cod",
-  [FishType.Mackerel]: "Mackerel",
-  [FishType.Pickerel]: "Pickerel",
-  [FishType.RockBass]: "Rock bass",
-};
-
-export const rarityNameMap: Record<Rarity, string> = {
-  [Rarity.VeryCommon]: "Very common",
-  [Rarity.Common]: "Common",
-  [Rarity.Uncommon]: "Uncommon",
-  [Rarity.Scarce]: "Scarce",
-  [Rarity.Rare]: "Rare",
-  [Rarity.Epic]: "Epic",
-  [Rarity.Exotic]: "Exotic",
-  [Rarity.Extraordinary]: "Extraordinary",
-  [Rarity.Legendary]: "Legendary",
-  [Rarity.Mythical]: "Mythical",
 };

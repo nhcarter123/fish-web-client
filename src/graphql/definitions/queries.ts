@@ -32,3 +32,15 @@ export const GET_FISH = gql`
     }
   }
 `;
+
+export const GET_TOP_CATCHES = gql`
+  query GetTopCatches {
+    getTopCatches {
+      _id
+      type
+      username
+      value
+      rarity
+    }
+  }
+`;

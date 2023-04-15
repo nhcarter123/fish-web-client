@@ -6,7 +6,7 @@ import { createClient } from "graphql-ws";
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "ws://localhost:4002/subscriptions",
+    url: process.env.REACT_APP_WS_URI || "",
   })
 );
 
