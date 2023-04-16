@@ -146,7 +146,7 @@ const Leaderboard = () => {
                     "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
                 }}
               >
-                {fish.rarity && (
+                {fish.rarity !== undefined && (
                   <Box
                     mr={2}
                     sx={{
@@ -158,7 +158,7 @@ const Leaderboard = () => {
                     }}
                   />
                 )}
-                {fish.type && (
+                {fish.type !== undefined && (
                   <Box mr={2}>
                     <img
                       src={`${
