@@ -42,7 +42,7 @@ export enum FishType {
   SnappingTurtle,
   SpottedTurtle,
   Lobster,
-  MudTurtle,
+  LeatherbackTurtle,
   BrookTrout,
   Cod,
   Mackerel,
@@ -68,6 +68,10 @@ export enum FishType {
   Snook,
   Sturgeon,
   Trout,
+  SeaTurtle,
+  BlueCrab,
+  KingCrab,
+  LionsManeJellyfish,
 }
 enum LifespanClass {
   Short,
@@ -115,8 +119,9 @@ export const fishTypeNameMap: Record<FishType, string> = {
   [FishType.Walleye]: "Walleye",
   [FishType.BoxTurtle]: "Box turtle",
   [FishType.SnappingTurtle]: "Snapping turtle",
+  [FishType.SeaTurtle]: "Sea turtle",
   [FishType.SpottedTurtle]: "Spotted turtle",
-  [FishType.MudTurtle]: "Mud turtle",
+  [FishType.LeatherbackTurtle]: "Leatherback turtle",
   [FishType.Pufferfish]: "Pufferfish",
   [FishType.Sardine]: "Sardine",
   [FishType.SeaBass]: "Sea bass",
@@ -142,6 +147,9 @@ export const fishTypeNameMap: Record<FishType, string> = {
   [FishType.Mackerel]: "Mackerel",
   [FishType.Pickerel]: "Pickerel",
   [FishType.RockBass]: "Rock bass",
+  [FishType.BlueCrab]: "Blue crab",
+  [FishType.KingCrab]: "King crab",
+  [FishType.LionsManeJellyfish]: "Lion's mane jellyfish",
 };
 
 export const rarityNameMap: Record<Rarity, string> = {
@@ -289,12 +297,17 @@ export const fishConfigMap: Record<FishType, FishConfig> = {
     rarity: Rarity.Legendary,
     lifespanClass: LifespanClass.Medium,
   },
+  [FishType.SeaTurtle]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Mythical,
+    lifespanClass: LifespanClass.Medium,
+  },
   [FishType.SpottedTurtle]: {
     weightClass: WeightClass.Light,
     rarity: Rarity.Epic,
     lifespanClass: LifespanClass.Medium,
   },
-  [FishType.MudTurtle]: {
+  [FishType.LeatherbackTurtle]: {
     weightClass: WeightClass.Light,
     rarity: Rarity.Rare,
     lifespanClass: LifespanClass.Medium,
@@ -429,52 +442,24 @@ export const fishConfigMap: Record<FishType, FishConfig> = {
     rarity: Rarity.Common,
     lifespanClass: LifespanClass.Medium,
   },
+  [FishType.BlueCrab]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Extraordinary,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.KingCrab]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Legendary,
+    lifespanClass: LifespanClass.Long,
+  },
+  [FishType.LionsManeJellyfish]: {
+    weightClass: WeightClass.Light,
+    rarity: Rarity.Legendary,
+    lifespanClass: LifespanClass.Medium,
+  },
 };
 
 export type RarityWeight = {
   rarity: Rarity;
   weight: number;
 };
-
-export const standardRarityTable: RarityWeight[] = [
-  {
-    rarity: Rarity.VeryCommon,
-    weight: 320 + 1,
-  },
-  {
-    rarity: Rarity.Common,
-    weight: 192 + 1,
-  },
-  {
-    rarity: Rarity.Uncommon,
-    weight: 128 + 1,
-  },
-  {
-    rarity: Rarity.Scarce,
-    weight: 64 + 1,
-  },
-  {
-    rarity: Rarity.Rare,
-    weight: 32 + 1,
-  },
-  {
-    rarity: Rarity.Epic,
-    weight: 16 + 1,
-  },
-  {
-    rarity: Rarity.Exotic,
-    weight: 8 + 1,
-  },
-  {
-    rarity: Rarity.Extraordinary,
-    weight: 4 + 1,
-  },
-  {
-    rarity: Rarity.Legendary,
-    weight: 2 + 1,
-  },
-  {
-    rarity: Rarity.Mythical,
-    weight: 1 + 1,
-  },
-];

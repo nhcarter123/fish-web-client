@@ -19,8 +19,12 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_26_x";
     case FishType.Crawfish:
       return "spr_fish_92_x";
+    case FishType.BlueCrab:
+      return "spr_fish_83_x";
     case FishType.Crab:
       return "spr_fish_84_x";
+    case FishType.KingCrab:
+      return "spr_fish_85_x";
     case FishType.Sunfish:
       return "spr_fish_74_x";
     case FishType.Catfish:
@@ -31,8 +35,11 @@ export const getFishPathFromType = (type: number) => {
     case FishType.BoxTurtle:
     case FishType.SpottedTurtle:
     case FishType.SnappingTurtle:
-    case FishType.MudTurtle:
       return "spr_fish_77_x";
+    case FishType.LeatherbackTurtle:
+      return "spr_fish_78_x";
+    case FishType.SeaTurtle:
+      return "spr_fish_79_x";
     case FishType.Shrimp:
       return "spr_fish_87_x";
     case FishType.Starfish:
@@ -87,6 +94,16 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_57_x";
     case FishType.Sturgeon:
       return "spr_fish_21_x";
+    case FishType.Crappie:
+      return "spr_fish_62_x";
+    case FishType.Salmon:
+      return "spr_fish_72_x";
+    case FishType.Gar:
+      return "spr_fish_60_x"; // replace
+    case FishType.Pufferfish:
+      return "spr_fish_10_x";
+    case FishType.LionsManeJellyfish:
+      return "spr_fish_100_x";
   }
 
   return "spr_fish_01_x";
