@@ -9,6 +9,7 @@ import CoinImage from "../images/coin.png";
 import {
   fishConfigMap,
   fishTypeNameMap,
+  getSizeTagByFish,
   rarityNameMap,
 } from "../config/config";
 import { SnackbarContext, SnackbarSeverity } from "./SnackbarProvider";
@@ -32,11 +33,14 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
   const fishType = fishTypeNameMap[fish.type];
   const rarityName = rarityNameMap[rarity];
   const roundedFloat = round2Decimal(fish.float, 10);
+  const weightFloat = round2Decimal(fish.weight, 10);
   const fishValue = fish.value.toLocaleString();
+  const fishSizeTag = getSizeTagByFish(fish).trim();
 
   const tooltip = (
     <>
       <Typography color="inherit">{`Float: ${roundedFloat}`}</Typography>
+      <Typography color="inherit">{`Weight: ${weightFloat}`}</Typography>
       <Typography color="inherit">{`Type: ${fishType}`}</Typography>
       <Typography color="inherit">{`Rarity: ${rarityName}`}</Typography>
       <Typography color="inherit">{`Username: ${fish.username}`}</Typography>
@@ -153,6 +157,34 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
                 {fishValue}
               </Typography>
             </Box>
+            {fishSizeTag.length > 0 && (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  position: "absolute",
+                  top: "2px",
+                  right: "2px",
+                  background: "#444240",
+                  padding: "2px 4px",
+                  pointerEvents: "none",
+                  borderRadius: "4px",
+                  border: "2px solid",
+                  borderColor: "#1e1e1e",
+                }}
+              >
+                <Typography
+                  color={"#ffffff"}
+                  sx={{
+                    fontSize: "0.8rem",
+                    lineHeight: "0.8rem",
+                    // fontWeight: "bold",
+                  }}
+                >
+                  {fishSizeTag}
+                </Typography>
+              </Box>
+            )}
           </Box>
         </Box>
       </Box>

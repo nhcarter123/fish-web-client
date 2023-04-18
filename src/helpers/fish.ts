@@ -104,6 +104,10 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_10_x";
     case FishType.LionsManeJellyfish:
       return "spr_fish_100_x";
+    case FishType.RainbowTrout:
+      return "spr_fish_73_x";
+    case FishType.Zander:
+      return "spr_fish_06_x";
   }
 
   return "spr_fish_01_x";

@@ -1,3 +1,5 @@
+import { Fish } from "../types/fish";
+
 export enum Rarity {
   VeryCommon,
   Common,
@@ -462,4 +464,40 @@ export const fishConfigMap: Record<FishType, FishConfig> = {
 export type RarityWeight = {
   rarity: Rarity;
   weight: number;
+};
+
+export const getSizeTagByFish = (fish: Fish): string => {
+  if (fish.weight > 0.999) {
+    return "Colossal ";
+  }
+  if (fish.weight > 0.99) {
+    return "Enormous ";
+  }
+  if (fish.weight > 0.95) {
+    return "Gigantic ";
+  }
+  if (fish.weight > 0.9) {
+    return "Giant ";
+  }
+  if (fish.weight > 0.8) {
+    return "Large ";
+  }
+
+  if (fish.weight < 0.001) {
+    return "Atomic ";
+  }
+  if (fish.weight < 0.01) {
+    return "Nano ";
+  }
+  if (fish.weight < 0.05) {
+    return "Micro ";
+  }
+  if (fish.weight < 0.1) {
+    return "Tiny ";
+  }
+  if (fish.weight < 0.2) {
+    return "Small ";
+  }
+
+  return "";
 };
