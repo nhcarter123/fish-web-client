@@ -1,4 +1,16 @@
-import { Fish } from "../types/fish";
+export type Fish = {
+  _id: string;
+  type: FishType;
+  username: string;
+  float: number;
+  isShiny: boolean;
+  weight: number;
+  age: number;
+  value: number;
+  version: number;
+  rarity: Rarity;
+  gender: FishGender;
+};
 
 export enum Rarity {
   VeryCommon,
@@ -17,6 +29,211 @@ export enum FishGender {
   Male,
   Female,
 }
+
+export enum ShopItemType {
+  WoodRod,
+  BambooRod,
+  FiberglassRod,
+  Spear,
+  Net,
+  Trap,
+  Rusty,
+  Steel,
+  Double,
+  Barbed,
+  SnapSwivel,
+  Unknown1,
+  Unknown2,
+  None,
+  Sardines,
+  Worm,
+  Caterpillar,
+  Crab,
+  Shrimp,
+  Ammonite,
+  Braided,
+  Monofilament,
+}
+
+export enum ItemClass {
+  Rod,
+  Bait,
+  Lure,
+  Line,
+}
+
+export type ShopItem = {
+  name: string;
+  description: string[];
+  path: string;
+  cost: number;
+  class: ItemClass;
+  costPerCast?: boolean;
+  // type: ShopItemType;
+};
+
+export const shopItemConfig: Record<ShopItemType, ShopItem> = {
+  [ShopItemType.WoodRod]: {
+    name: "Wood rod",
+    description: ["+10s cast time."],
+    path: "icon37",
+    cost: 0,
+    class: ItemClass.Rod,
+  },
+  [ShopItemType.BambooRod]: {
+    name: "Bamboo rod",
+    description: ["+5s cast time."],
+    path: "icon38",
+    cost: 2000,
+    class: ItemClass.Rod,
+  },
+  [ShopItemType.FiberglassRod]: {
+    name: "Fiberglass rod",
+    description: ["-5s cast time.", "+10% tangle chance."],
+    path: "icon39",
+    cost: 10000,
+    class: ItemClass.Rod,
+  },
+  [ShopItemType.Spear]: {
+    name: "Spear",
+    description: ["10% chance to catch 2 fish."],
+    path: "icon40",
+    cost: 50000,
+    class: ItemClass.Rod,
+  },
+  [ShopItemType.Net]: {
+    name: "Net",
+    description: ["+180s cast time.", "catches 1-5 fish."],
+    path: "icon41",
+    cost: 200000,
+    class: ItemClass.Rod,
+  },
+  [ShopItemType.Trap]: {
+    name: "Trap",
+    description: ["+60s cast time.", "Can catch deep sea fish."],
+    path: "icon42",
+    cost: 500000,
+    class: ItemClass.Rod,
+  },
+  [ShopItemType.Rusty]: {
+    name: "Rusty hook",
+    description: ["+2% seaweed catch rate."],
+    path: "icon43",
+    cost: 0,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.Steel]: {
+    name: "Steel hook",
+    description: ["+2% seaweed catch rate."],
+    path: "icon44",
+    cost: 5000,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.Double]: {
+    name: "Double hook",
+    description: ["+2% seaweed catch rate."],
+    path: "icon45",
+    cost: 25000,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.Barbed]: {
+    name: "Barbed hook",
+    description: ["Ignores very common fish.", "+25% seaweed catch rate."],
+    path: "icon46",
+    cost: 50000,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.SnapSwivel]: {
+    name: "Snap swivel",
+    description: ["-15% seaweed catch rate."],
+    path: "icon34",
+    cost: 100000,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.Unknown1]: {
+    name: "Unknown",
+    description: [],
+    path: "icon35",
+    cost: 9999999,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.Unknown2]: {
+    name: "Unknown",
+    description: [],
+    path: "icon36",
+    cost: 9999999,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.None]: {
+    name: "None",
+    description: [],
+    path: "close",
+    cost: 0,
+    class: ItemClass.Lure,
+  },
+  [ShopItemType.Sardines]: {
+    name: "Sardines",
+    description: [],
+    path: "icon33",
+    cost: 25,
+    costPerCast: true,
+    class: ItemClass.Bait,
+  },
+  [ShopItemType.Worm]: {
+    name: "Worm",
+    description: [],
+    path: "icon31",
+    cost: 50,
+    costPerCast: true,
+    class: ItemClass.Bait,
+  },
+  [ShopItemType.Caterpillar]: {
+    name: "Caterpillar",
+    description: [],
+    path: "icon32",
+    cost: 150,
+    costPerCast: true,
+    class: ItemClass.Bait,
+  },
+  [ShopItemType.Crab]: {
+    name: "Crab",
+    description: [],
+    path: "icon28",
+    cost: 250,
+    costPerCast: true,
+    class: ItemClass.Bait,
+  },
+  [ShopItemType.Shrimp]: {
+    name: "Shrimp",
+    description: [],
+    path: "icon29",
+    cost: 500,
+    costPerCast: true,
+    class: ItemClass.Bait,
+  },
+  [ShopItemType.Ammonite]: {
+    name: "Ammonite",
+    description: [],
+    path: "icon30",
+    cost: 1000,
+    costPerCast: true,
+    class: ItemClass.Bait,
+  },
+  [ShopItemType.Braided]: {
+    name: "Braided line",
+    description: [],
+    path: "icon47",
+    cost: 0,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Monofilament]: {
+    name: "Monofilament line",
+    description: [],
+    path: "icon48",
+    cost: 80000,
+    class: ItemClass.Line,
+  },
+};
 
 export enum FishType {
   BrownTrout,
@@ -74,6 +291,18 @@ export enum FishType {
   BlueCrab,
   KingCrab,
   LionsManeJellyfish,
+  MantisShrimp,
+  PistolShrimp,
+  ElectricEel,
+  MorayEel,
+  BlueSeaStar,
+  RoyalStarfish,
+  ThornySeahorse,
+  SpottedSeahorse,
+  YellowSeahorse,
+  // Pirarucu
+  // Aruanãfish
+  // Tambaqui
 }
 enum LifespanClass {
   Short,
@@ -152,6 +381,15 @@ export const fishTypeNameMap: Record<FishType, string> = {
   [FishType.BlueCrab]: "Blue crab",
   [FishType.KingCrab]: "King crab",
   [FishType.LionsManeJellyfish]: "Lion's mane jellyfish",
+  [FishType.MantisShrimp]: "Mantis shrimp",
+  [FishType.PistolShrimp]: "Pistol shrimp",
+  [FishType.ElectricEel]: "Electric eel",
+  [FishType.MorayEel]: "Moray eel",
+  [FishType.BlueSeaStar]: "Blue sea star",
+  [FishType.RoyalStarfish]: "Royal starfish",
+  [FishType.ThornySeahorse]: "Thorny seahorse",
+  [FishType.SpottedSeahorse]: "Spotted seahorse",
+  [FishType.YellowSeahorse]: "Yellow seahorse",
 };
 
 export const rarityNameMap: Record<Rarity, string> = {
@@ -457,6 +695,56 @@ export const fishConfigMap: Record<FishType, FishConfig> = {
   [FishType.LionsManeJellyfish]: {
     weightClass: WeightClass.Light,
     rarity: Rarity.Legendary,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.MantisShrimp]: {
+    weightClass: WeightClass.Light,
+    rarity: Rarity.Mythical,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.PistolShrimp]: {
+    weightClass: WeightClass.Light,
+    rarity: Rarity.Exotic,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.ElectricEel]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Extraordinary,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.MorayEel]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Epic,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.BlueSeaStar]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Rare,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.BlueSeaStar]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Rare,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.RoyalStarfish]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Legendary,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.ThornySeahorse]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Extraordinary,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.SpottedSeahorse]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Exotic,
+    lifespanClass: LifespanClass.Medium,
+  },
+  [FishType.YellowSeahorse]: {
+    weightClass: WeightClass.Medium,
+    rarity: Rarity.Epic,
     lifespanClass: LifespanClass.Medium,
   },
 };

@@ -108,6 +108,26 @@ export const getFishPathFromType = (type: number) => {
       return "spr_fish_73_x";
     case FishType.Zander:
       return "spr_fish_06_x";
+    case FishType.Bullhead:
+      return "spr_fish_32_x";
+    case FishType.MantisShrimp:
+      return "spr_fish_86_x";
+    case FishType.PistolShrimp:
+      return "spr_fish_88_x";
+    case FishType.ElectricEel:
+      return "spr_fish_47_x";
+    case FishType.MorayEel:
+      return "spr_fish_48_x";
+    case FishType.BlueSeaStar:
+      return "spr_fish_80_x";
+    case FishType.RoyalStarfish:
+      return "spr_fish_81_x";
+    case FishType.ThornySeahorse:
+      return "spr_fish_90_x";
+    case FishType.SpottedSeahorse:
+      return "spr_fish_90_x";
+    case FishType.YellowSeahorse:
+      return "spr_fish_89_x";
   }
 
   return "spr_fish_01_x";

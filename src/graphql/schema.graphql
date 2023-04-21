@@ -4,6 +4,17 @@ input UpdateMatchPayload {
   rating: Int!
 }
 
+type Player {
+  _id: String!
+  xp: Int!
+  gold: Int!
+  rod: Int!
+  lure: Int!
+  bait: Int!
+  line: Int!
+  purchasedItems: [Int!]!
+}
+
 type Fish {
   _id: String!
   type: Int!
@@ -18,8 +29,9 @@ type Fish {
 }
 
 type Query {
-  getFish(username: String, page: Int!, pageSize: Int!, createdSort: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!): [Fish!]!
+  getFish(username: String, page: Int!, pageSize: Int!, createdSort: Int!, raritySort: Int!, valueSort: Int!, floatSort: Int!, weightSort: Int!): [Fish!]!
   getTopCatches: [Fish!]!
+  getPlayer(username: String!): Player!
 }
 
 type Subscription {

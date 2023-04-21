@@ -1,18 +1,10 @@
 import { useQuery, useSubscription } from "@apollo/client";
-import { GET_FISH, GET_TOP_CATCHES } from "../graphql/definitions/queries";
-import { Box, Button, Grid, TableSortLabel, Typography } from "@mui/material";
-import Gallery from "./Gallery";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Pagination from "@mui/material/Pagination";
-import SortButton from "./SortButton";
-import { useMediaQuery } from "react-responsive";
-import {
-  FISH_CAUGHT,
-  LEADERBOARD_UPDATED,
-} from "../graphql/definitions/subscriptions";
-import { Fish } from "../types/fish";
+import { GET_TOP_CATCHES } from "../graphql/definitions/queries";
+import { Box, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { LEADERBOARD_UPDATED } from "../graphql/definitions/subscriptions";
 import { getFishPathFromType, getRarityColor } from "../helpers/fish";
+import { Fish } from "../config/config";
 
 function getColor(input: string): string {
   const colors = [

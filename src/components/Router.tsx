@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Box } from "@mui/material";
-import Gallery from "./Gallery";
 import React from "react";
 import Main from "./Main";
 import Leaderboard from "./Leaderboard";
+import Shop from "./shop/Shop";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +18,8 @@ const router = createBrowserRouter([
     element: <Leaderboard />,
   },
   {
-    path: "/shop",
-    element: <Leaderboard />,
+    path: "/shop/:username",
+    element: <Shop />,
   },
 ]);
 

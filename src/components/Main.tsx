@@ -14,6 +14,7 @@ export enum SortType {
   Rarity,
   Value,
   Float,
+  Weight,
 }
 const Main = () => {
   const { username } = useParams();
@@ -22,6 +23,7 @@ const Main = () => {
   const [raritySort, setRaritySort] = React.useState(0);
   const [valueSort, setValueSort] = React.useState(0);
   const [floatSort, setFloatSort] = React.useState(0);
+  const [weightSort, setWeightSort] = React.useState(0);
 
   const { data: subData, loading: subLoading } = useSubscription(FISH_CAUGHT, {
     variables: {
@@ -40,19 +42,22 @@ const Main = () => {
       raritySort,
       valueSort,
       floatSort,
+      weightSort,
     },
   });
 
   const setSort = (
     createdSort: number,
-    rarity: number,
-    float: number,
-    value: number
+    raritySort: number,
+    floatSort: number,
+    valueSort: number,
+    weightSort: number
   ) => {
     setCreatedSort(createdSort);
-    setRaritySort(rarity);
-    setFloatSort(float);
-    setValueSort(value);
+    setRaritySort(raritySort);
+    setFloatSort(floatSort);
+    setValueSort(valueSort);
+    setWeightSort(weightSort);
   };
 
   const handleRaritySort = (type: SortType) => {
@@ -61,38 +66,47 @@ const Main = () => {
     switch (type) {
       case SortType.Created:
         if (createdSort === 0) {
-          setSort(-1, 0, 0, 0);
+          setSort(-1, 0, 0, 0, 0);
         } else if (createdSort === -1) {
-          setSort(1, 0, 0, 0);
+          setSort(1, 0, 0, 0, 0);
         } else {
-          setSort(0, 0, 0, 0);
+          setSort(0, 0, 0, 0, 0);
         }
         break;
       case SortType.Rarity:
         if (raritySort === 0) {
-          setSort(0, -1, 0, 0);
+          setSort(0, -1, 0, 0, 0);
         } else if (raritySort === -1) {
-          setSort(0, 1, 0, 0);
+          setSort(0, 1, 0, 0, 0);
         } else {
-          setSort(0, 0, 0, 0);
+          setSort(0, 0, 0, 0, 0);
         }
         break;
       case SortType.Value:
         if (valueSort === 0) {
-          setSort(0, 0, 0, -1);
+          setSort(0, 0, 0, -1, 0);
         } else if (valueSort === -1) {
-          setSort(0, 0, 0, 1);
+          setSort(0, 0, 0, 1, 0);
         } else {
-          setSort(0, 0, 0, 0);
+          setSort(0, 0, 0, 0, 0);
         }
         break;
       case SortType.Float:
         if (floatSort === 0) {
-          setSort(0, 0, -1, 0);
+          setSort(0, 0, -1, 0, 0);
         } else if (floatSort === -1) {
-          setSort(0, 0, 1, 0);
+          setSort(0, 0, 1, 0, 0);
         } else {
-          setSort(0, 0, 0, 0);
+          setSort(0, 0, 0, 0, 0);
+        }
+        break;
+      case SortType.Weight:
+        if (weightSort === 0) {
+          setSort(0, 0, 0, 0, -1);
+        } else if (weightSort === -1) {
+          setSort(0, 0, 0, 0, 1);
+        } else {
+          setSort(0, 0, 0, 0, 0);
         }
         break;
     }
@@ -156,14 +170,14 @@ const Main = () => {
           </Typography>
 
           <Box display={"flex"} justifyContent={"center"}>
-            <Box mx={3}>
+            <Box mx={2}>
               <Grid
                 container
-                spacing={{ xs: 1, md: 3 }}
-                columns={{ xs: 4, sm: 12, md: 12 }}
+                spacing={{ xs: 1, sm: 2, md: 2 }}
+                columns={{ xs: 4, sm: 10, md: 10 }}
                 justifyContent={"center"}
               >
-                <Grid item xs={2} sm={3} md={3}>
+                <Grid item xs={2} sm={2} md={2}>
                   <SortButton
                     title={"Created"}
                     onClick={() => handleRaritySort(SortType.Created)}
@@ -171,26 +185,40 @@ const Main = () => {
                     live={createdSort === -1}
                   />
                 </Grid>
-                <Grid item xs={2} sm={3} md={3}>
+                <Grid item xs={2} sm={2} md={2}>
                   <SortButton
                     title={"Rarity"}
                     onClick={() => handleRaritySort(SortType.Rarity)}
                     sort={raritySort}
                   />
                 </Grid>
-                <Grid item xs={2} sm={3} md={3}>
+                <Grid item xs={2} sm={2} md={2}>
                   <SortButton
                     title={"Value"}
                     onClick={() => handleRaritySort(SortType.Value)}
                     sort={valueSort}
                   />
                 </Grid>
-                <Grid item xs={2} sm={3} md={3}>
+                <Grid item xs={2} sm={2} md={2}>
                   <SortButton
                     title={"Float"}
                     onClick={() => handleRaritySort(SortType.Float)}
                     sort={floatSort}
                   />
+                </Grid>
+                <Grid item xs={2} sm={2} md={2}>
+                  <SortButton
+                    title={"Weight"}
+                    onClick={() => handleRaritySort(SortType.Weight)}
+                    sort={weightSort}
+                  />
+                </Grid>
+                <Grid item xs={2} sm={2} md={2}>
+                  {/*<SortButton*/}
+                  {/*  title={"Weight"}*/}
+                  {/*  onClick={() => handleRaritySort(SortType.Weight)}*/}
+                  {/*  sort={floatSort}*/}
+                  {/*/>*/}
                 </Grid>
               </Grid>
             </Box>

@@ -1,12 +1,9 @@
 import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import { useQuery } from "@apollo/client";
-import { GET_FISH } from "../graphql/definitions/queries";
 import FishCard from "./FishCard";
-import { Fish } from "../types/fish";
 import React from "react";
 import { Skeleton, TableSortLabel } from "@mui/material";
 import { useMediaQuery } from "react-responsive";
+import { Fish } from "../config/config";
 
 type GalleryProps = {
   fishes: Fish[];

@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { Box, ImageListItem, Tooltip, Typography } from "@mui/material";
-import { Fish } from "../types/fish";
+import { Box, Tooltip, Typography } from "@mui/material";
 import { getFishPathFromType, getRarityColor } from "../helpers/fish";
 
 import MaleImage from "../images/male.png";
 import FemaleImage from "../images/female.png";
 import CoinImage from "../images/coin.png";
 import {
+  Fish,
   fishConfigMap,
+  FishGender,
   fishTypeNameMap,
   getSizeTagByFish,
   rarityNameMap,
@@ -44,7 +45,7 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
       <Typography color="inherit">{`Type: ${fishType}`}</Typography>
       <Typography color="inherit">{`Rarity: ${rarityName}`}</Typography>
       <Typography color="inherit">{`Username: ${fish.username}`}</Typography>
-      {/*<Typography color="inherit">{`Gender: ${fish.gender}`}</Typography>*/}
+      <Typography color="inherit">{`Gender: ${fish.gender}`}</Typography>
       {fish.isShiny && (
         <Typography color="inherit">{`Shiny: ${fish.isShiny}`}</Typography>
       )}
@@ -78,7 +79,8 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
           onClick={() => setTooltipIsOpen(!tooltipIsOpen)}
           display={"flex"}
           sx={{
-            backgroundImage: "linear-gradient(to right, #DECBA4, #3E5151);",
+            backgroundImage:
+              "linear-gradient(to bottom right, #DECBA4, #3E5151);",
             border: "2px solid #1b1b1b",
             "&:hover": {
               border: "2px solid",

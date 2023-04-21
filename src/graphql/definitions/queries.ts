@@ -9,6 +9,7 @@ export const GET_FISH = gql`
     $raritySort: Int!
     $valueSort: Int!
     $floatSort: Int!
+    $weightSort: Int!
   ) {
     getFish(
       username: $username
@@ -18,6 +19,7 @@ export const GET_FISH = gql`
       raritySort: $raritySort
       valueSort: $valueSort
       floatSort: $floatSort
+      weightSort: $weightSort
     ) {
       _id
       type
@@ -41,6 +43,21 @@ export const GET_TOP_CATCHES = gql`
       username
       value
       rarity
+    }
+  }
+`;
+
+export const GET_PLAYER = gql`
+  query GetPlayer($username: String!) {
+    getPlayer(username: $username) {
+      _id
+      xp
+      gold
+      rod
+      lure
+      bait
+      line
+      purchasedItems
     }
   }
 `;
