@@ -155,7 +155,7 @@ const FishCard = ({ fish }: FishCardProps): JSX.Element => {
               }}
             >
               <img src={CoinImage} alt="coin" width={"20px"} height={"20px"} />
-              <Typography ml={0.5} color={"#fff"}>
+              <Typography ml={0.5} color={"#fbd072"}>
                 {fishValue}
               </Typography>
             </Box>

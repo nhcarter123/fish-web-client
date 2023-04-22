@@ -95,8 +95,7 @@ const Shop = () => {
             }}
           >
             <Box p={2}>
-              Buying and equipping works but effects don't work yet and aren't
-              final sorry!
+              Buyer beware! Prices and effects are subject to change.
             </Box>
             <ShopCategoryHeader
               title={"Rods"}
@@ -115,12 +114,14 @@ const Shop = () => {
               items={bait}
               selectedIndex={selectedBait}
               purchasedItems={purchasedItems}
+              notImplementedBanner
             />
             <ShopCategoryHeader
               title={"Lines"}
               items={lines}
               selectedIndex={selectedLine}
               purchasedItems={purchasedItems}
+              notImplementedBanner
             />
             {/*{rods.map((item, index) => (*/}
             {/*  <ShopCard item={item} key={index} />*/}

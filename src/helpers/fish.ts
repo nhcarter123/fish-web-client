@@ -119,7 +119,7 @@ export const getFishPathFromType = (type: number) => {
     case FishType.MorayEel:
       return "spr_fish_48_x";
     case FishType.BlueSeaStar:
-      return "spr_fish_80_x";
+      return "spr_fish_82_x";
     case FishType.RoyalStarfish:
       return "spr_fish_81_x";
     case FishType.ThornySeahorse:

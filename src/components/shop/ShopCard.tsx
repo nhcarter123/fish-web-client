@@ -65,7 +65,7 @@ const ShopCard = ({ type, selected, owned }: ShopCardProps) => {
               }}
             >
               <Typography color={"#eeeeee"} fontSize={"12px"}>
-                !{owned || config.costPerCast ? "equip" : "buy"} {type}
+                !{owned ? "equip" : "buy"} {type}
               </Typography>
             </Box>
           </Box>
@@ -84,7 +84,8 @@ const ShopCard = ({ type, selected, owned }: ShopCardProps) => {
                   // color={"#ffedb4"}
                   color={"#fbd072"}
                   sx={{
-                    textDecoration: owned ? "line-through" : "none",
+                    textDecoration:
+                      owned && !config.costPerCast ? "line-through" : "none",
                   }}
                 >
                   {config.cost.toLocaleString()}

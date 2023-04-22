@@ -8,6 +8,7 @@ type ShopCategoryHeaderProps = {
   items: ShopItemType[];
   selectedIndex: number;
   purchasedItems: number[];
+  notImplementedBanner?: boolean;
 };
 
 const ShopCategoryHeader = ({
@@ -15,6 +16,7 @@ const ShopCategoryHeader = ({
   items,
   selectedIndex,
   purchasedItems,
+  notImplementedBanner,
 }: ShopCategoryHeaderProps) => {
   return (
     <Box>
@@ -54,6 +56,18 @@ const ShopCategoryHeader = ({
             "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.4) 0px 3px 6px",
         }}
       >
+        {notImplementedBanner && (
+          <Typography
+            textAlign={"center"}
+            sx={{
+              background: "#8c3939",
+              marginBottom: "16px",
+              borderRadius: "4px",
+            }}
+          >
+            ⚠️ These effects don't work yet ⚠️
+          </Typography>
+        )}
         <Grid
           container
           spacing={{ xs: 2, sm: 2, md: 2 }}

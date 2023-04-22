@@ -94,14 +94,18 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.BambooRod]: {
     name: "Bamboo rod",
-    description: ["+5s cast time."],
+    description: ["+5s cast time.", "Catches lighter fish."],
     path: "icon38",
     cost: 2000,
     class: ItemClass.Rod,
   },
   [ShopItemType.FiberglassRod]: {
     name: "Fiberglass rod",
-    description: ["-5s cast time.", "+10% tangle chance."],
+    description: [
+      "-5s cast time.",
+      "+10% tangle chance.",
+      "Catches heavier fish.",
+    ],
     path: "icon39",
     cost: 10000,
     class: ItemClass.Rod,
