@@ -21,6 +21,10 @@ const router = createBrowserRouter([
     path: "/shop/:username",
     element: <Shop />,
   },
+  {
+    path: "/shop",
+    element: <Shop />,
+  },
 ]);
 
 export default router;

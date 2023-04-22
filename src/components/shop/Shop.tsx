@@ -32,7 +32,16 @@ const bait: ShopItemType[] = [
   ShopItemType.Shrimp,
   ShopItemType.Ammonite,
 ];
-const lines: ShopItemType[] = [ShopItemType.Braided, ShopItemType.Monofilament];
+const lines: ShopItemType[] = [
+  ShopItemType.Braided,
+  ShopItemType.Coated,
+  ShopItemType.Line3,
+  // ShopItemType.Line4,
+  // ShopItemType.Line5,
+  // ShopItemType.Line6,
+  // ShopItemType.Line7,
+  // ShopItemType.Line8,
+];
 
 const Shop = () => {
   const { username } = useParams();

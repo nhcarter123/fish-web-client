@@ -23,6 +23,12 @@ export enum Rarity {
   Extraordinary,
   Legendary,
   Mythical,
+  Ethereal,
+  Divine,
+  Celestial,
+  Godly,
+  Demonic,
+  Infernal,
 }
 
 export enum FishGender {
@@ -52,7 +58,13 @@ export enum ShopItemType {
   Shrimp,
   Ammonite,
   Braided,
-  Monofilament,
+  Coated,
+  Line3,
+  Line4,
+  Line5,
+  Line6,
+  Line7,
+  Line8,
 }
 
 export enum ItemClass {
@@ -96,7 +108,7 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Spear]: {
     name: "Spear",
-    description: ["10% chance to catch 2 fish."],
+    description: ["15% chance to catch 2 fish."],
     path: "icon40",
     cost: 50000,
     class: ItemClass.Rod,
@@ -110,42 +122,48 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Trap]: {
     name: "Trap",
-    description: ["+60s cast time.", "Can catch deep sea fish."],
+    description: ["+20m cast time.", "Catches rares and up."],
     path: "icon42",
     cost: 500000,
     class: ItemClass.Rod,
   },
   [ShopItemType.Rusty]: {
     name: "Rusty hook",
-    description: ["+2% seaweed catch rate."],
+    description: ["+10% seaweed catch rate."],
     path: "icon43",
     cost: 0,
     class: ItemClass.Lure,
   },
   [ShopItemType.Steel]: {
     name: "Steel hook",
-    description: ["+2% seaweed catch rate."],
+    description: ["+5% seaweed catch rate."],
     path: "icon44",
     cost: 5000,
     class: ItemClass.Lure,
   },
   [ShopItemType.Double]: {
     name: "Double hook",
-    description: ["+2% seaweed catch rate."],
+    description: [
+      "+15% seaweed catch rate.",
+      "10% chance to catch another fish.",
+    ],
     path: "icon45",
     cost: 25000,
     class: ItemClass.Lure,
   },
   [ShopItemType.Barbed]: {
     name: "Barbed hook",
-    description: ["Ignores very common fish.", "+25% seaweed catch rate."],
+    description: [
+      "+25% seaweed catch rate.",
+      "20% chance to catch another fish.",
+    ],
     path: "icon46",
     cost: 50000,
     class: ItemClass.Lure,
   },
   [ShopItemType.SnapSwivel]: {
     name: "Snap swivel",
-    description: ["-15% seaweed catch rate."],
+    description: ["+0% seaweed catch rate."],
     path: "icon34",
     cost: 100000,
     class: ItemClass.Lure,
@@ -166,14 +184,14 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.None]: {
     name: "None",
-    description: [],
+    description: ["Can catch most kinds of fish."],
     path: "close",
     cost: 0,
     class: ItemClass.Lure,
   },
   [ShopItemType.Sardines]: {
     name: "Sardines",
-    description: [],
+    description: ["Can catch ethereal fish."],
     path: "icon33",
     cost: 25,
     costPerCast: true,
@@ -181,7 +199,7 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Worm]: {
     name: "Worm",
-    description: [],
+    description: ["Can catch divine fish."],
     path: "icon31",
     cost: 50,
     costPerCast: true,
@@ -189,7 +207,7 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Caterpillar]: {
     name: "Caterpillar",
-    description: [],
+    description: ["Can catch celestial fish."],
     path: "icon32",
     cost: 150,
     costPerCast: true,
@@ -197,7 +215,7 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Crab]: {
     name: "Crab",
-    description: [],
+    description: ["Can catch godly fish."],
     path: "icon28",
     cost: 250,
     costPerCast: true,
@@ -205,7 +223,7 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Shrimp]: {
     name: "Shrimp",
-    description: [],
+    description: ["Can catch demonic fish."],
     path: "icon29",
     cost: 500,
     costPerCast: true,
@@ -213,24 +231,67 @@ export const shopItemConfig: Record<ShopItemType, ShopItem> = {
   },
   [ShopItemType.Ammonite]: {
     name: "Ammonite",
-    description: [],
+    description: ["Can catch infernal fish."],
     path: "icon30",
     cost: 1000,
     costPerCast: true,
     class: ItemClass.Bait,
   },
+  // Lines
   [ShopItemType.Braided]: {
     name: "Braided line",
-    description: [],
+    description: ["+10s cast time.", "+3% tangle chance."],
     path: "icon47",
     cost: 0,
     class: ItemClass.Line,
   },
-  [ShopItemType.Monofilament]: {
-    name: "Monofilament line",
-    description: [],
+  [ShopItemType.Coated]: {
+    name: "Coated line",
+    description: ["+0s cast time.", "+5% tangle chance."],
+    path: "icon48",
+    cost: 20000,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Line3]: {
+    name: "Line 3",
+    description: ["-10s cast time.", "+10% tangle chance."],
+    path: "icon48",
+    cost: 40000,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Line4]: {
+    name: "Line 4",
+    description: ["-10s cast time.", "+5% tangle chance."],
+    path: "icon48",
+    cost: 60000,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Line5]: {
+    name: "Line 5",
+    description: ["+10s cast time.", "Can catch celestial fish."],
     path: "icon48",
     cost: 80000,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Line6]: {
+    name: "Line 6",
+    description: ["+10s cast time.", "Can catch godly fish."],
+    path: "icon48",
+    cost: 100000,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Line7]: {
+    name: "Line 7",
+    description: ["+10s cast time.", "Can catch demonic fish."],
+    path: "icon48",
+    cost: 120000,
+    class: ItemClass.Line,
+  },
+  [ShopItemType.Line8]: {
+    name: "Line 8",
+    description: ["+10s cast time.", "Can catch infernal fish."],
+    path: "icon48",
+    cost: 140000,
     class: ItemClass.Line,
   },
 };
@@ -403,6 +464,14 @@ export const rarityNameMap: Record<Rarity, string> = {
   [Rarity.Extraordinary]: "Extraordinary",
   [Rarity.Legendary]: "Legendary",
   [Rarity.Mythical]: "Mythical",
+  // [Rarity.Ancient]: "Ancient",
+  //
+  [Rarity.Ethereal]: "Ethereal",
+  [Rarity.Divine]: "Divine",
+  [Rarity.Celestial]: "Celestial",
+  [Rarity.Godly]: "Godly",
+  [Rarity.Demonic]: "Demonic",
+  [Rarity.Infernal]: "Infernal",
 };
 
 export const LifespanMap: Record<LifespanClass, number> = {

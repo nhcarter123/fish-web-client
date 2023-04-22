@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 import CoinImage from "../../images/coin.png";
 import { ShopItem, shopItemConfig, ShopItemType } from "../../config/config";
 
@@ -65,7 +65,7 @@ const ShopCard = ({ type, selected, owned }: ShopCardProps) => {
               }}
             >
               <Typography color={"#eeeeee"} fontSize={"12px"}>
-                !{owned ? "equip" : "buy"} {type}
+                !{owned || config.costPerCast ? "equip" : "buy"} {type}
               </Typography>
             </Box>
           </Box>
@@ -107,14 +107,20 @@ const ShopCard = ({ type, selected, owned }: ShopCardProps) => {
             }}
           >
             {config.description.map((desc, index) => (
-              <Typography
-                key={index}
-                color={"#bebebe"}
-                fontSize={"12px"}
-                // fontWeight={"bold"}
-              >
-                {desc}
-              </Typography>
+              <Box key={index}>
+                <Typography
+                  color={"#bebebe"}
+                  fontSize={"12px"}
+                  // fontWeight={"bold"}
+                >
+                  {desc}
+                </Typography>
+                {index < config.description.length - 1 && (
+                  <Box my={0.5}>
+                    <Divider color={"#8d8d8d"} />
+                  </Box>
+                )}
+              </Box>
             ))}
           </Box>
         </Box>
